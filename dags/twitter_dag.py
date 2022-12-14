@@ -1,18 +1,20 @@
-from datetime import timedelta
+import os
+import sys
+import tweepy
+import pandas as pd
+from pprint import pprint
+from dotenv import load_dotenv
+from datetime import datetime,timedelta
+load_dotenv()
+
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
-from datetime import datetime
 
-import tweepy
-import pandas as pd
-from datetime import datetime
-import sys
-from pprint import pprint
 
 def run_etl():
 
-    bearer = "Your bearer here :) "
+    bearer = os.environ.get('BEARER')
 
     client = tweepy.Client(bearer_token=bearer)
     query = 'harcelement OR violence -is:retweet'

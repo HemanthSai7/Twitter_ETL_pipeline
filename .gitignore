@@ -1,2 +1,5 @@
 __pycache__
 .env
+
+#docker
+logs/scheduler/latest
