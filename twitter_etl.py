@@ -1,11 +1,16 @@
-import tweepy
-import pandas as pd
+import os
 import json
+import tweepy
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv
+
+import pandas as pd
+
 
 def run_etl():
 
-    bearer = "Your bearer here :) "
+    bearer = os.environ.get('BEARER')
 
 
     client = tweepy.Client(bearer_token=bearer)

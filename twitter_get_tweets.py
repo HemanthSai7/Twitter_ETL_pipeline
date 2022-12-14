@@ -1,10 +1,14 @@
-import tweepy
-import pandas as pd
+import os
 import json
+import tweepy
+from dotenv import load_dotenv
 from datetime import datetime
+load_dotenv()
+
+import pandas as pd
 
 
-bearer = "Your bearer here :) "
+bearer = os.environ.get('BEARER')
 
 
 # Twitter auth
