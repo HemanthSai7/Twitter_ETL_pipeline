@@ -66,4 +66,6 @@ run_job = PythonOperator(
     dag=dag
 )
 
+#run_job >> next_dag >> other_dag  way of chaining DAGs
+
 run_job
