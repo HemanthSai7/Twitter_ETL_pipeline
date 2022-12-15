@@ -39,6 +39,7 @@ def run_etl():
             tweet_list.append(refined_tweet)
 
     df = pd.DataFrame(tweet_list)
+    df.to_csv("harcelement.csv")
 
 
 
