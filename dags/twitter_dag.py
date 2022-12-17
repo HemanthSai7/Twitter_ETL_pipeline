@@ -10,6 +10,7 @@ load_dotenv()
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
+from airflow.models import Variable
 
 
 def run_etl():
@@ -39,7 +40,8 @@ def run_etl():
             tweet_list.append(refined_tweet)
 
     df = pd.DataFrame(tweet_list)
-    df.to_csv("harcelement.csv")
+    csv_path=Variable.get("twitter_dag_csv")
+    df.to_csv(csv_path,index=False)
 
 
 
